@@ -1,0 +1,6 @@
+{
+  "name": "Bitruvius Canvas",
+  "description": "Symmetrical archival book-and-paper canvas engine with light ink proportional grids, scanned edge borders, and page turning.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

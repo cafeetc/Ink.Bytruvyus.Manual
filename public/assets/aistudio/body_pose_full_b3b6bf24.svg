@@ -1,0 +1,217 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="230 430 1200 1260" width="1200" height="1260">
+  <title>Body posing tool (full FK)</title>
+  <desc>Drag a pink joint sideways to rotate that segment. Waist is the root: legs hang from it, torso sits on it, and the neck, head, and arms hang from the torso. Click Reset to clear all joints.</desc>
+
+  <defs>
+    <g id="armR">
+      <g id="clavR" data-px="825" data-py="683">
+        <path d="M826,676 L905,664 C916,654 940,654 952,668 C960,678 958,698 950,708 C940,720 915,716 902,708 L830,690 C820,686 820,680 826,676 Z" fill="#2a0033"/>
+        <g id="upperR" data-px="923" data-py="688">
+          <path d="M916,686 C940,664 1000,655 1060,658 C1090,660 1110,672 1118,688 C1110,704 1090,716 1060,718 C1000,721 940,712 916,686 Z" fill="#2a0033"/>
+          <g id="foreR" data-px="1113" data-py="688">
+            <path d="M1100,688 C1104,678 1112,672 1126,670 L1262,676 C1278,680 1288,684 1290,688 C1288,692 1278,696 1262,700 L1126,706 C1112,704 1104,698 1100,688 Z" fill="#2a0033"/>
+            <circle cx="1113" cy="688" r="14" fill="#2a0033"/>
+            <g id="handR" data-px="1283" data-py="688">
+              <path d="M1280,688 C1284,680 1292,676 1305,677 L1355,682 L1368,688 L1355,694 L1305,699 C1292,700 1284,696 1280,688 Z" fill="#2a0033"/>
+              <path d="M1280,688 C1284,680 1292,676 1305,677 L1392,681 L1405,688 L1392,695 L1305,699 C1292,700 1284,696 1280,688 Z" fill="#2a0033"/>
+              <circle cx="1283" cy="688" r="4" class="jt" data-j="handR" fill="#ff2fa0"/>
+            </g>
+            <circle cx="1113" cy="688" r="4" class="jt" data-j="foreR" fill="#ff2fa0"/>
+          </g>
+          <circle cx="923" cy="688" r="4" class="jt" data-j="upperR" fill="#ff2fa0"/>
+        </g>
+        <circle cx="825" cy="683" r="4" class="jt" data-j="clavR" fill="#ff2fa0"/>
+      </g>
+    </g>
+
+    <g id="legR">
+      <g id="hipR" data-px="824" data-py="955">
+        <polygon points="833.7,957.3 795.7,1102.3 778.3,1097.7 816.3,952.7" fill="#2a0033"/>
+        <g id="thighR" data-px="787" data-py="1100">
+          <circle cx="780" cy="1100" r="38" fill="#2a0033"/>
+          <polygon points="814.4,1116.2 671.8,1357.1 650.2,1346.9 745.6,1083.8" fill="#2a0033"/>
+          <circle cx="661" cy="1352" r="12" fill="#2a0033"/>
+          <g id="shinR" data-px="661" data-py="1352">
+            <circle cx="661" cy="1352" r="24" fill="#2a0033"/>
+            <polygon points="683.4,1360.5 557.4,1651.2 540.6,1644.8 638.6,1343.5" fill="#2a0033"/>
+            <g id="footR" data-px="548" data-py="1650">
+              <circle cx="512" cy="1642" r="22" fill="#2a0033"/>
+              <polygon points="367.9,1629.9 509,1663.8 515,1620.2 370.1,1614.1" fill="#2a0033"/><circle cx="369" cy="1622" r="8" fill="#2a0033"/>
+              <circle cx="548" cy="1650" r="4" class="jt" data-j="footR" fill="#ff2fa0"/>
+            </g>
+            <circle cx="661" cy="1352" r="4" class="jt" data-j="shinR" fill="#ff2fa0"/>
+          </g>
+          <circle cx="787" cy="1100" r="4" class="jt" data-j="thighR" fill="#ff2fa0"/>
+        </g>
+        <circle cx="824" cy="955" r="4" class="jt" data-j="hipR" fill="#ff2fa0"/>
+      </g>
+    </g>
+  </defs>
+
+  <g id="waist" data-px="824" data-py="955">
+    <path d="M824,953 C808,958 790,968 770,985 C745,1008 735,1032 735,1058 C736,1090 752,1118 780,1132 C800,1140 812,1140 825,1140 C842,1140 862,1138 880,1126 C905,1110 918,1085 918,1058 C918,1030 905,1005 880,980 C862,964 842,956 824,953 Z" fill="#2a0033"/>
+
+    <!-- Right leg, hangs from waist -->
+    <use href="#legR"/>
+    <!-- Left leg: mirror of right -->
+    <g transform="matrix(-1 0 0 1 1646 0)">
+      <use href="#legR" id="legLuse"/>
+    </g>
+
+    <g id="torso" data-px="824" data-py="955">
+      <path d="M824,652 L844,654 C880,664 912,700 916,760 C919,800 905,860 880,910 C858,945 840,968 824,968 C808,968 790,945 768,910 C743,860 729,800 732,760 C736,700 768,664 804,654 Z" fill="#2a0033" opacity="0.85"/>
+
+      <!-- Arm swivels -->
+      <polygon points="815.5,953.2 830.5,958.8 930.5,690.8 915.5,685.2" fill="#2a0033"/>
+      <g transform="matrix(-1 0 0 1 1646 0)">
+        <polygon points="815.5,953.2 830.5,958.8 930.5,690.8 915.5,685.2" fill="#2a0033"/>
+      </g>
+
+      <!-- Right arm -->
+      <use href="#armR"/>
+      <!-- Left arm: mirror of right -->
+      <g transform="matrix(-1 0 0 1 1646 0)">
+        <g id="clavL" data-px="825" data-py="683">
+          <path d="M826,676 L905,664 C916,654 940,654 952,668 C960,678 958,698 950,708 C940,720 915,716 902,708 L830,690 C820,686 820,680 826,676 Z" fill="#2a0033"/>
+          <g id="upperL" data-px="923" data-py="688">
+            <path d="M916,686 C940,664 1000,655 1060,658 C1090,660 1110,672 1118,688 C1110,704 1090,716 1060,718 C1000,721 940,712 916,686 Z" fill="#2a0033"/>
+            <g id="foreL" data-px="1113" data-py="688">
+              <path d="M1100,688 C1104,678 1112,672 1126,670 L1262,676 C1278,680 1288,684 1290,688 C1288,692 1278,696 1262,700 L1126,706 C1112,704 1104,698 1100,688 Z" fill="#2a0033"/>
+              <circle cx="1113" cy="688" r="14" fill="#2a0033"/>
+              <g id="handL" data-px="1283" data-py="688">
+                <path d="M1280,688 C1284,680 1292,676 1305,677 L1355,682 L1368,688 L1355,694 L1305,699 C1292,700 1284,696 1280,688 Z" fill="#2a0033"/>
+                <path d="M1280,688 C1284,680 1292,676 1305,677 L1392,681 L1405,688 L1392,695 L1305,699 C1292,700 1284,696 1280,688 Z" fill="#2a0033"/>
+                <circle cx="1283" cy="688" r="4" class="jt" data-j="handL" fill="#ff2fa0"/>
+              </g>
+              <circle cx="1113" cy="688" r="4" class="jt" data-j="foreL" fill="#ff2fa0"/>
+            </g>
+            <circle cx="923" cy="688" r="4" class="jt" data-j="upperL" fill="#ff2fa0"/>
+          </g>
+          <circle cx="825" cy="683" r="4" class="jt" data-j="clavL" fill="#ff2fa0"/>
+        </g>
+      </g>
+
+      <circle cx="824" cy="860" r="4" class="jt" data-j="torso" fill="#ff2fa0"/>
+
+      <g id="neck" data-px="824" data-py="955">
+        <rect x="815" y="668" width="16" height="290" rx="8" fill="#2a0033"/>
+        <circle cx="824" cy="812" r="4" class="jt" data-j="neck" fill="#ff2fa0"/>
+
+        <g id="headV" data-px="824" data-py="668">
+          <rect x="800" y="618" width="48" height="62" rx="20" fill="#2a0033"/>
+          <g id="adamH" data-px="824" data-py="620">
+            <rect x="789" y="565" width="70" height="45" rx="22" fill="#2a0033"/>
+            <g id="skullH" data-px="824" data-py="622">
+              <path d="M824,468 C870,468 878,520 878,545 C878,590 866,612 850,620 C840,625 832,626 824,626 C816,626 808,625 798,620 C782,612 770,590 770,545 C770,520 778,468 824,468 Z" fill="#2a0033"/>
+              <g id="swivelH" data-px="824" data-py="622">
+                <rect x="818" y="540" width="12" height="82" rx="6" fill="#2a0033"/>
+                <g id="faceH" data-px="824" data-py="540">
+                  <circle cx="824" cy="540" r="30" fill="#5f0080"/>
+                  <circle cx="824" cy="540" r="4" class="jt" data-j="faceH" fill="#ff2fa0"/>
+                </g>
+                <circle cx="824" cy="622" r="4" class="jt" data-j="swivelH" fill="#ff2fa0"/>
+              </g>
+              <circle cx="824" cy="622" r="4" class="jt" data-j="skullH" fill="#ff2fa0"/>
+            </g>
+            <circle cx="824" cy="620" r="4" class="jt" data-j="adamH" fill="#ff2fa0"/>
+          </g>
+          <circle cx="824" cy="668" r="4" class="jt" data-j="headV" fill="#ff2fa0"/>
+        </g>
+      </g>
+    </g>
+
+    <circle cx="825" cy="1040" r="4" class="jt" data-j="waist" fill="#ff2fa0"/>
+  </g>
+
+  <!-- Controls -->
+  <text id="status" x="240" y="455" font-size="18" font-family="sans-serif" fill="#7b3fe4">Drag a pink joint sideways to rotate. Children follow.</text>
+  <g id="reset" style="cursor:pointer">
+    <rect id="resetBtn" x="1290" y="438" width="120" height="34" rx="6" fill="#ffffff" stroke="#7b3fe4" stroke-width="2"/>
+    <text id="resetTxt" x="1350" y="461" font-size="18" font-family="sans-serif" fill="#7b3fe4" text-anchor="middle">Reset</text>
+  </g>
+
+  <style>
+    .jt { cursor: grab; }
+  </style>
+
+  <script><![CDATA[
+    (function () {
+      var svg = document.documentElement;
+      var status = document.getElementById('status');
+      var segs = Array.prototype.slice.call(document.querySelectorAll('g[data-px]'));
+      var angles = {};
+      var active = null, start = null;
+
+      // Left-side arm and leg are cloned from the right side at load time, so
+      // every right-side segment has a left-side twin with the same local id plus 'L'.
+      function cloneLeft() {
+
+        var legUse = document.getElementById('legLuse');
+        var legSrc = document.getElementById('legR').cloneNode(true);
+        legSrc.id = 'legL';
+        legUse.parentNode.replaceChild(legSrc, legUse);
+        var mirror = legSrc.parentNode;
+        mirror.setAttribute('transform', 'matrix(-1 0 0 1 1646 0)');
+        // Rename the cloned joint ids and segment ids so they don't collide.
+        var nodes = legSrc.querySelectorAll('[id]');
+        for (var i = 0; i < nodes.length; i++) nodes[i].id = nodes[i].id.replace(/R$/, 'L');
+        var jts = legSrc.querySelectorAll('[data-j]');
+        for (var k = 0; k < jts.length; k++) jts[k].setAttribute('data-j', jts[k].getAttribute('data-j').replace(/R$/, 'L'));
+
+      }
+      cloneLeft();
+
+      segs = Array.prototype.slice.call(document.querySelectorAll('g[data-px]'));
+
+      function setA(g, a) {
+        angles[g.id] = a;
+        g.setAttribute('transform', 'rotate(' + a.toFixed(1) + ' ' + g.getAttribute('data-px') + ' ' + g.getAttribute('data-py') + ')');
+      }
+      function resetAll() {
+        segs.forEach(function (g) { setA(g, 0); });
+        status.textContent = 'All joints reset.';
+      }
+      segs.forEach(function (g) { setA(g, 0); });
+
+      // Spine parts get a tighter range than the limbs.
+      function limitFor(id) {
+        return (id === 'waist' || id === 'torso' || id === 'neck' || id === 'headV' || id === 'adamH' || id === 'skullH') ? 45 : 90;
+      }
+
+      function scale() {
+        var r = svg.getBoundingClientRect();
+        return 1200 / r.width;
+      }
+
+      svg.addEventListener('pointerdown', function (e) {
+        var t = e.target;
+        if (t.classList && t.classList.contains('jt')) {
+          active = t.getAttribute('data-j');
+          start = { x: e.clientX, a: angles[active] || 0 };
+          svg.setPointerCapture(e.pointerId);
+          status.textContent = 'Joint: ' + active + '  angle ' + (angles[active] || 0).toFixed(0) + '°';
+        } else if (t.id === 'reset' || t.id === 'resetBtn' || t.id === 'resetTxt') {
+          resetAll();
+        }
+      });
+      svg.addEventListener('pointermove', function (e) {
+        if (!active) return;
+        var lim = limitFor(active);
+        var a = start.a + (e.clientX - start.x) * scale() * 0.5;
+        a = Math.max(-lim, Math.min(lim, a));
+        segs.forEach(function (g) {
+          if (g.id === active) setA(g, a);
+        });
+        // Mirror the right-side joint onto the left side.
+        if (active.slice(-1) === 'R') {
+          var lg = document.getElementById(active.slice(0, -1) + 'L');
+          if (lg) setA(lg, a);
+        }
+        status.textContent = 'Joint: ' + active + '  angle ' + a.toFixed(0) + '°';
+      });
+      function end() { active = null; start = null; }
+      svg.addEventListener('pointerup', end);
+      svg.addEventListener('pointercancel', end);
+    })();
+  ]]></script>
+</svg>

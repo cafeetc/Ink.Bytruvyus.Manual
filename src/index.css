@@ -1,0 +1,193 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+  font-family: "UMTypewriter";
+  src: url("/fonts/UMTypewriter-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "UMTypewriter";
+  src: url("/fonts/UMTypewriter-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "UMTypewriter";
+  src: url("/fonts/UMTypewriter-Italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bitstream Vera Sans Mono";
+  src: url("/fonts/VeraMono.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bitstream Vera Sans Mono";
+  src: url("/fonts/VeraMono-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Bitstream Vera Sans Mono", ui-monospace, monospace;
+    font-variant-numeric: tabular-nums;
+    background-color: #161219;
+    color: #241b2c;
+    overflow: hidden;
+  }
+}
+
+.font-typewriter {
+  font-family: "UMTypewriter", "Courier New", monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.font-vera {
+  font-family: "Bitstream Vera Sans Mono", ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Soft paper edge-sweep animation (supple leaf turning across the symmetrical window) */
+@keyframes paperTurnNext {
+  0% {
+    transform: translateX(0%) scaleX(1);
+    opacity: 0.96;
+  }
+  45% {
+    transform: translateX(-48%) scaleX(0.32);
+    opacity: 0.92;
+  }
+  100% {
+    transform: translateX(-100%) scaleX(0.06);
+    opacity: 0;
+  }
+}
+
+@keyframes paperTurnPrev {
+  0% {
+    transform: translateX(0%) scaleX(1);
+    opacity: 0.96;
+  }
+  45% {
+    transform: translateX(48%) scaleX(0.32);
+    opacity: 0.92;
+  }
+  100% {
+    transform: translateX(100%) scaleX(0.06);
+    opacity: 0;
+  }
+}
+
+/* Hard cover board-swing animation (rigid hinge without soft curl) */
+@keyframes coverTurnNext {
+  0% {
+    transform: perspective(1800px) rotateY(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: perspective(1800px) rotateY(-88deg);
+    opacity: 0.08;
+  }
+}
+
+@keyframes coverTurnPrev {
+  0% {
+    transform: perspective(1800px) rotateY(-88deg);
+    opacity: 0.08;
+  }
+  100% {
+    transform: perspective(1800px) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+/* Border edge shimmer/settle on resize or turn */
+@keyframes edgeRimSweepNext {
+  0% {
+    transform: translateX(100%);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateX(0%);
+    opacity: 0.95;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes edgeRimSweepPrev {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateX(0%);
+    opacity: 0.95;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.animate-paper-next {
+  transform-origin: left center;
+  animation: paperTurnNext 420ms steps(10, end) forwards;
+}
+
+.animate-paper-prev {
+  transform-origin: right center;
+  animation: paperTurnPrev 420ms steps(10, end) forwards;
+}
+
+.animate-cover-next {
+  transform-origin: left center;
+  animation: coverTurnNext 480ms steps(12, end) forwards;
+}
+
+.animate-cover-prev {
+  transform-origin: left center;
+  animation: coverTurnPrev 480ms steps(12, end) forwards;
+}
+
+.animate-edge-sweep-next {
+  animation: edgeRimSweepNext 420ms steps(10, end) forwards;
+}
+
+.animate-edge-sweep-prev {
+  animation: edgeRimSweepPrev 420ms steps(10, end) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-paper-next,
+  .animate-paper-prev,
+  .animate-cover-next,
+  .animate-cover-prev,
+  .animate-edge-sweep-next,
+  .animate-edge-sweep-prev {
+    animation: none !important;
+    transition: none !important;
+  }
+}
